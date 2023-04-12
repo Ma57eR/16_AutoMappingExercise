@@ -1,6 +1,7 @@
 package softuni.entities;
 
 import jakarta.persistence.*;
+import softuni.entities.users.User;
 
 import java.util.Set;
 
@@ -17,7 +18,12 @@ public class Order {
     @ManyToMany(fetch = FetchType.EAGER)
     private Set<Game> products;
 
+    public Order() {
 
+    }
 
-
+    public Order(User buyer, Set<Game> products) {
+        this.buyer = buyer;
+        this.products = products;
+    }
 }
